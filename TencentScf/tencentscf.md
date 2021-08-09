@@ -1,6 +1,6 @@
 ## Github Action 部署
 
-### 由@[ZFeng3242](https://github.com/ZFeng3242/)整理      参考至@[lxk0301](https://gitee.com/lxk0301/)
+### 由@[ZFeng1005](https://github.com/ZFeng1005/)整理      参考至@[lxk0301](https://gitee.com/lxk0301/)
 ### !注意：环境变量最大不能超过4kb，故不能添加过多的ck，如需放置相当数量的ck，请自行更改`JD-Cookie`与`TENCENT_FUNCTION_NAME`后创建新的云函数放置  
 
 
@@ -12,14 +12,13 @@
 | TENCENT_SECRET_ID      | 腾讯云函数     | 必须                      |腾讯云函数API密钥 [SecretId](https://console.cloud.tencent.com/cam/capi)  |
 | TENCENT_SECRET_KEY     | 腾讯云函数     | 必须                      |腾讯云函数API密钥 [SecretKey](https://console.cloud.tencent.com/cam/capi)  |
 | SCF_REGION             | 腾讯云函数     | 必须                      |腾讯云函数目前所支持的地域信息，[参考取值](https://cloud.tencent.com/document/product/583/17299)  |
+| TENCENTSCF_MEMORYSIZE  | 腾讯云函数     | 必须                      |运行内存大小的设定值，默认为`64`，需求更大内存的可填入`128`|
 | TENCENT_FUNCTION_NAME  | 腾讯云函数     | 必须                      |腾讯云函数名称，例：`JDscripts`|
 | TENCENTSCF_SOURCE_TYPE | 腾讯云函数     | 非必须                      |腾讯云函数执行文件类型,默认使用gitee，详细请前往 index.js文件中[查看](https://github.com/ZFeng3242/JD-haoyangmao/blob/main/index.js)|
 | TENCENTSCF_SOURCE_URL  | 腾讯云函数     | 非必须                      |当选择自定义模式，定义执行自定义远端js文件网址|
 
 
-#### 请将以上环境变量填写完全，环境变量的获取方法详见[下方](https://github.com/ZFeng3242/JD-haoyangmao/blob/main/TencentScf/tencentscf.md#2-%E5%9C%A8%E8%BF%99%E9%87%8C%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5%E6%96%B0%E5%BB%BA%E5%AF%86%E9%92%A5)  
-
-
+#### 请将以上环境变量填写完全，环境变量的获取方法:
 
 ### 1. 开通服务
 
@@ -34,6 +33,8 @@
 > 将SecretId和SecretKey分别配置在仓库的secrets变量里面
 
 > `TENCENT_SECRET_ID`对应你的SecretId的值，`TENCENT_SECRET_KEY`对应你的SecretKey的值
+
+> `TENCENTSCF_MEMORYSIZE`对应值为运行内存大小的设定值，默认为`64`，需求更大内存的可填入`128`，云函数有128MB就能满足了,请注意**提高内存设定值相应地也会加快消耗云函数的免费额度，超出免费额度将会产生费用**
 
 > `TENCENT_FUNCTION_NAME`对应你的函数名称，请自行决定
  
